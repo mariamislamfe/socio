@@ -1,0 +1,55 @@
+▲ Next.js 16.4.0 (Turbopack)
+✓ Running next.config.ts took 367ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 32.3s
+  Running TypeScript ...
+✓ Finished filesystem cache database compaction in 18.1s
+  Finished TypeScript in 66s ...
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/9) ...
+  Generating static pages using 7 workers (2/9) 
+  Generating static pages using 7 workers (4/9) 
+  Generating static pages using 7 workers (6/9) 
+✓ Generating static pages using 7 workers (9/9) in 2.7s
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /api/[...slug]
+├ ƒ /app
+├ ƒ /app/actions
+├ ƒ /app/ads
+├ ƒ /app/ask
+├ ƒ /app/boardroom
+├ ƒ /app/budgets
+├ ƒ /app/calendar
+├ ƒ /app/cash-flow
+├ ƒ /app/financing
+├ ƒ /app/financing/pack
+├ ƒ /app/goals
+├ ƒ /app/health
+├ ƒ /app/insights
+├ ƒ /app/investments
+├ ƒ /app/learn
+├ ƒ /app/media-buyer
+├ ƒ /app/obligations
+├ ƒ /app/plan
+├ ƒ /app/products
+├ ƒ /app/profit
+├ ƒ /app/scenarios
+├ ƒ /app/settings/[[...tab]]
+├ ƒ /app/transactions
+├ ƒ /auth/callback
+├ ○ /forgot
+├ ○ /login
+├ ○ /onboarding
+├ ○ /register
+├ ○ /reset
+└ ƒ /share/[token]
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

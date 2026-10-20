@@ -1,0 +1,72 @@
+
+> socio@0.1.0 test:ui
+> tsx scripts/ui-e2e.mts
+
+1. Landing → register → onboarding
+  ✓ landing renders hero and calls to action
+  ✓ registration lands on onboarding
+  ✓ new workspace shows the first-steps checklist and no fake data
+
+2. Quick-add updates totals
+  ✓ revenue appears after saving income
+  ✓ profit = 1,000 − 400 = 600 (not cash, not revenue)
+
+3. Glossary hints work with keyboard and touch
+  ✓ keyboard: focus + Enter opens the explanation
+  ✓ Escape closes it
+  ✓ touch: tapping the info icon opens the explanation
+  ✓ mobile has no horizontal page overflow
+  ✓ mobile shows bottom navigation
+  ✓ mobile quick-add opens as a sheet
+
+4. Budgets
+  ✓ budget shows 80% used from stored records (400 of 500)
+
+5. Settings persist
+  ✓ business name persisted after reload
+
+6. Integrations are honest in the UI
+  ✓ shows 'Not connected' and what the server is missing
+  ✓ connect button is disabled without server credentials
+
+6b. Operating-system pages render from real data
+  ✓ /app/actions renders
+  ✓ /app/profit renders
+  ✓ /app/calendar renders
+  ✓ /app/financing renders
+  ✓ /app/ask renders
+  ✓ /app/plan renders
+  ✓ /app/media-buyer renders
+  ✓ running all checks gives an honest result (no error toast)
+  ✓ asking a question shows what was understood, the plan and the steps taken
+  ✓ WhatsApp briefing shows a preview of the real message before anything is sent
+
+7. Command palette & theme
+  ✓ palette jumps to a glossary term
+  ✓ dark theme applies
+
+7b. Company health
+  ✓ health page shows a verdict, readiness and a monthly to-do list
+  ✓ answering the VAT question adds the monthly VAT return
+  ✓ a legal to-do expands to steps, documents and a source to verify
+  ✓ completing a required item updates the progress
+
+7b2. Simple view (default for beginners)
+  ✓ simple view: home shows only cash, two big buttons and what is coming
+  ✓ simple view: core items, a 'Made for Egypt' group (WhatsApp, couriers, media buyer), the rest folded under Advanced tools
+  ✓ adding a monthly cost is three taps and gives a reminder
+  ✓ simple view: True profit and Bills & fixed costs are in the main menu
+  ✓ “safe to spend” explains itself: cash − taxes − bills − cushion
+  ✓ salaries: add a person, then mark them paid early, in the salaries band
+  ✓ calendar: tapping an empty day opens “add” right there, with that date
+
+7c. English ⇄ Egyptian Arabic
+  ✓ switching to Egyptian Arabic turns the page right-to-left and translates it
+  ✓ the language choice is remembered
+  ✓ switching back restores English
+
+8. Sign out protects the app
+  ✓ signed-out users are redirected to login
+  ✓ no uncaught page errors
+
+43 passed, 0 failed

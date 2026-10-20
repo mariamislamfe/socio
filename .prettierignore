@@ -1,0 +1,8 @@
+node_modules
+.next
+.data
+submission
+docs
+public
+package-lock.json
+*.md

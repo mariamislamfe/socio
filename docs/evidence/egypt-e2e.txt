@@ -1,0 +1,33 @@
+1. Taxes & papers: nothing is estimated until the owner answers
+  ✓ a new business is created
+  ✓ a new business has no tax profile and the checklist is marked unknown
+  ✓ six questions are asked, in English and Egyptian Arabic
+  ✓ the agent does not estimate tax yet and points to Taxes & papers
+  ✓ …and in Egyptian Arabic
+  ✓ the owner saves their answers
+  ✓ the checklist continues from where they stopped (tax card in progress is next)
+  ✓ the commercial register is marked done
+  ✓ each open step says what to do, in both languages
+  ✓ the agent now gives the next step instead of a number
+  ✓ invalid answers are rejected
+
+2. Money with couriers (demo workspace)
+  ✓ couriers' money is listed with a total held
+  ✓ the late payout is flagged (Mylerz, 9 days)
+  ✓ the next payout is known
+  ✓ the financing story still shows a dip in the future
+  ✓ a new delivery batch is added (net of courier fees)
+  ✓ fees larger than the collection are refused
+  ✓ a payout date before delivery is refused
+  ✓ the total held grows by the net amount
+  ✓ COD money appears in the owner's 'coming up' list
+  ✓ marking a payout received records the money
+  ✓ …and the late warning clears
+  ✓ the agent answers about couriers from the same numbers
+  ✓ …and in Egyptian Arabic
+
+3. Isolation
+  ✓ another business cannot touch these COD batches
+  ✓ another business sees only its own couriers' money
+
+26 passed, 0 failed

@@ -1,0 +1,48 @@
+1. Authorization
+  ✓ server reports Shopify as configured
+  ✓ authorize URL targets the store with client_id, scopes, state and redirect
+  ✓ callback with a forged signature is rejected
+  ✓ a different signed-in user cannot complete someone else's authorization (state bound to user)
+  ✓ valid signed callback completes the connection
+  ✓ code was exchanged with expiring=1 (refresh token issued)
+
+2. Identity, webhooks and initial sync
+  ✓ initial sync completed through the job queue
+  ✓ store identity saved (name, currency, timezone)
+  ✓ 7 webhook topics registered at Shopify
+  ✓ short-lived access token was refreshed and rotated
+  ✓ 5 paid orders imported to the ledger across paginated pages
+  ✓ order lines stored with unit costs (product economics available)
+  ✓ Shopify balance is NOT counted as available cash
+
+3. Idempotent re-sync and diagnostics
+  ✓ re-sync creates no duplicates
+  ✓ diagnostics: token, identity, counts, pagination, persistence, idempotency, webhooks pass
+
+4. Webhooks
+  ✓ unsigned webhook rejected (401)
+  ✓ signed webhook acknowledged (200)
+  ✓ redelivery of the same webhook is recognised as a duplicate
+  ✓ webhook job applied the cancellation, the refund and the new order
+
+5. Honest failure and retry
+  ✓ a failing Shopify is reported as a failed sync with the error
+  ✓ retry succeeds and clears the error
+
+6. Disconnect and uninstall
+  ✓ disconnect deletes Socio's webhook subscriptions at Shopify
+  ✓ a disconnected store can no longer be synced
+  ✓ records already imported are kept
+  ✓ client-credentials mode connects stores in the app's own organization
+  ✓ uninstall calls appUninstall and the old token stops working
+
+7. Shopify-initiated install (App URL)
+  ✓ install request with a bad signature is rejected
+  ✓ signed install without a session goes to sign-in and comes back
+  ✓ signed install for a signed-in owner opens the connect step for that store (no token yet)
+
+8. Compliance webhooks
+  ✓ customers/data_request acknowledged (no customer data is stored)
+  ✓ shop/redact erases Shopify orders and keeps the owner's ledger
+
+31 passed, 0 failed

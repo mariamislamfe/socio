@@ -1,0 +1,37 @@
+1. Planning with the owner
+  ✓ before connecting Meta, planning works and says what is missing
+  ✓ the plan picks a product that earns money (not the losing keychain)
+  ✓ it sets the most a sale may cost from the product's real margin
+  ✓ it checks affordability against free cash and the cash forecast
+  ✓ targeting Saudi Arabia: prices are not converted silently (owner types the SAR price)
+  ✓ the ad is written in the chosen dialect (Gulf)
+  ✓ the co-pilot handles the audience details itself
+  ✓ choosing a product that loses money brings a clear warning
+  ✓ the owner can rewrite the ad in their own words
+
+2. Connecting Meta (read + ad management)
+  ✓ Meta authorisation asks for ad-management permission
+  ✓ Meta callback completes the connection
+  ✓ media buyer is now ready to create ads
+
+3. Approve → created on Meta, paused
+  ✓ approving the ad creates a level-3 approval (nothing is created yet)
+  ✓ the approval shows the exact wording, budget, days and country
+  ✓ another workspace cannot approve it
+  ✓ owner approval creates campaign, ad set, creative and ad on Meta — all paused
+  ✓ targeting, daily budget and dates come from the plan
+  ✓ the ad on Meta carries the owner's approved wording
+  ✓ once on Meta, what people see can no longer be changed silently
+
+4. Start (second approval) and daily follow-up
+  ✓ starting the ad needs its own approval
+  ✓ after approval Meta reports the campaign as active
+  ✓ results are measured: spend, sales and cost per sale
+  ✓ an ad that keeps spending without sales is paused automatically
+  ✓ …and the campaign shows as paused with the reason
+
+5. Safety
+  ✓ editing after asking for approval cancels the old approval
+  ✓ another workspace sees none of these ads
+
+26 passed, 0 failed

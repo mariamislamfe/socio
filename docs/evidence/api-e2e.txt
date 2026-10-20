@@ -1,0 +1,209 @@
+
+> socio@0.1.0 test:e2e
+> tsx scripts/e2e.ts
+
+E2E against http://localhost:3000
+
+1. Registration, business set-up
+  ✓ weak password rejected
+  ✓ registration succeeds
+  ✓ session established
+  ✓ no business yet
+  ✓ business created
+  ✓ starter categories seeded
+  ✓ first account created with opening balance
+
+2. Transactions and validation
+  ✓ unauthenticated request rejected
+  ✓ cross-origin write blocked (CSRF)
+  ✓ zero amount rejected
+  ✓ expense with income category rejected
+  ✓ transfer without destination rejected
+  ✓ income created
+
+3. Totals are computed from stored records
+  ✓ revenue = income − refunds (transfer excluded)
+  ✓ refunds tracked separately
+  ✓ cost of goods separated from opex
+  ✓ net profit = 480k − 150k − 50k
+  ✓ profit differs from cash
+  ✓ transfer does not change total cash
+  ✓ transfer counted, not revenue
+
+4. Edit / delete updates totals
+  ✓ edit accepted
+  ✓ totals follow the edit
+  ✓ filter/sort/pagination
+  ✓ search by description
+
+5. Budgets
+  ✓ budget created
+  ✓ budget reflects child-category spend
+  ✓ budget updates after new spend and is over
+
+6. Obligations and cash forecast
+  ✓ payable created
+  ✓ forecast has outflow and no receipt before due date
+  ✓ shortfall detected from the payable
+  ✓ end cash includes unpaid receivable only after due
+  ✓ partial payment recorded
+  ✓ overpayment rejected
+  ✓ recorded payment moved into cash and out of receivables
+  ✓ recurring schedule appears in forecast
+  ✓ recording a recurring payment advances next due
+
+7. Goals
+  ✓ contribution recorded
+  ✓ goal progress persists
+  ✓ cannot withdraw more than reserved
+
+8. Scenarios never modify records
+  ✓ simulation returns baseline and scenario
+  ✓ transaction count unchanged by simulation
+
+9. Copilot (deterministic)
+  ✓ copilot answers from data
+  ✓ AI explanation is either absent, real, or honestly unavailable
+  ✓ copilot asks for the missing amount
+
+10. CSV import, de-duplication and export
+  ✓ preview reports valid and invalid rows
+  ✓ import commits valid rows (identical rows both kept)
+  ✓ re-import is idempotent
+  ✓ export is CSV with imported rows
+
+11. Integrations are honest
+  ✓ lists all providers
+  ✓ unconfigured provider says so and shows what is missing
+  ✓ connect refuses when server has no credentials
+  ✓ sync refused when not connected
+  ✓ webhook without valid signature is rejected
+
+12. Tenant isolation
+  ✓ B cannot read A's transaction by id
+  ✓ B cannot edit A's transaction
+  ✓ B cannot delete A's transaction
+  ✓ B cannot switch into A's workspace
+  ✓ forged workspace cookie is ignored
+  ✓ B cannot post using A's account id
+  ✓ B sees none of A's budgets
+  ✓ B cannot delete A's workspace
+
+13. Settings persist
+  ✓ business profile persisted
+
+14. Demo workspace is separate and labelled
+  ✓ demo workspace created
+  ✓ demo flagged as demonstration
+  ✓ demo has realistic activity
+  ✓ two workspaces, demo never mixed with real
+  ✓ real workspace unaffected by demo
+
+15. Company health, Egypt to-do list, assets, investments
+  ✓ health loads for a brand-new workspace without inventing data
+  ✓ valuation is empty rather than guessed
+  ✓ Egypt checklist is generated (register, tax card, monthly routines)
+  ✓ VAT items are not listed for a tiny business
+  ✓ no government fee is invented
+  ✓ every legal item carries a source and a confidence flag
+  ✓ answering 'VAT registered' adds the monthly return with a planned (not legal) date
+  ✓ a to-do can be completed with the actual cost paid
+  ✓ completed state persists and counts toward readiness
+  ✓ depreciation is straight-line and book value follows
+  ✓ safe-to-invest explains its basis
+  ✓ investment return is computed from the recorded value
+  ✓ investments are tenant-isolated
+  ✓ boardroom reports whether an AI provider is configured
+  ✓ without an AI provider the boardroom refuses honestly (no fake meeting)
+
+16. Operating system: cash-risk workflow, approvals, policy, views
+  ✓ home loads with honest status and recorded cash
+  ✓ safety reserve saved
+  ✓ cash-risk workflow detects the upcoming shortfall
+  ✓ re-running is idempotent (same recommendation, not a duplicate)
+  ✓ level-1 alert and task ran automatically
+  ✓ each tool appears once despite two runs
+  ✓ changing a bill's due date waits for approval (level 3)
+  ✓ no email reminder is offered as sent without an email provider
+  ✓ another tenant cannot approve this action
+  ✓ another tenant sees none of these actions or jobs
+  ✓ approval with a different parameter hash is refused
+  ✓ approval with the exact hash executes and verifies
+  ✓ the bill's due date actually changed
+  ✓ an executed action cannot be approved twice
+  ✓ user-proposed sensitive action still needs approval
+  ✓ action can be rejected
+  ✓ a rejected action cannot be approved later
+  ✓ unknown tools (e.g. raw SQL) are refused
+  ✓ kill switch: with automation paused even level-1 waits for approval
+  ✓ after resuming, level-1 runs automatically
+  ✓ true-profit ladder loads; net profit is null or a number (never guessed)
+  ✓ cost assumptions persist
+  ✓ money calendar shows the receivable with projected cash after it
+  ✓ daily briefing builds from live data
+  ✓ Ask Your Business: focus today uses open recommendations
+  ✓ Ask Your Business: product question is honest without order data
+  ✓ scheduler endpoint refuses without the right secret
+
+17. Business-health checks, financing, lender file, agent, WhatsApp, trust
+  ✓ demo workspace for the operating-system story
+  ✓ checks find a losing product, ad spend that does not pay off, and tax money
+  ✓ cash check sees the dip below the safety reserve
+  ✓ losing product is named with a per-unit loss and a break-even price option
+  ✓ tax money was reserved automatically (internal, level 1)
+  ✓ trust ladder is computed from checked forecasts and approvals
+  ✓ re-running checks does not duplicate recommendations
+  ✓ financing need is computed from the forecast
+  ✓ the recommended offer keeps cash safe including repayments
+  ✓ an offer that only postpones the problem is not recommended
+  ✓ scam signs make an offer 'avoid' (upfront fee to a wallet)
+  ✓ a '15% fee' advance shows its true annual cost (>100%)
+  ✓ an offer can be added
+  ✓ repayment from sales requires the withheld share
+  ✓ another tenant cannot delete the offer
+  ✓ lender file: monthly results, 13 weeks with and without the loan, fingerprint
+  ✓ sharing the file is a level-3 action that waits for approval
+  ✓ nothing is shared before approval
+  ✓ approval with a different hash is refused
+  ✓ approved: link created and verified
+  ✓ the lender can open the read-only file without an account; fingerprint verifies
+  ✓ a guessed token reveals nothing
+  ✓ another tenant cannot revoke the link
+  ✓ after revoking, the link stops working
+  ✓ agent: intent, plan and steps from read-only tools
+  ✓ agent: numbers in the answer come from the engine (best offer named)
+  ✓ agent: tax question proposes a reserve through the policy engine
+  ✓ agent: without an email provider a reminder is refused and a draft is made instead
+  ✓ agent: input is validated
+  ✓ WhatsApp briefing has an Arabic and an English preview built from real data
+  ✓ WhatsApp number must be international format
+  ✓ owner can opt in
+  ✓ the stored number is never shown in full
+  ✓ sending is honest: sent only when the server is configured, otherwise skipped with the reason
+
+18. Simple mode: money in/out, fixed costs, planned payments
+  ✓ simple home: cash and nothing coming up for a new business
+  ✓ “I spent money” today is recorded at once
+  ✓ cash follows: 10,000 − 500 + 2,000
+  ✓ a fixed monthly cost becomes a reminder, not a payment
+  ✓ money expected on a future date is planned
+  ✓ both show in “coming up” with their dates
+  ✓ “Paid” records it and moves the reminder to next month
+  ✓ “Received” adds the money and removes it from the list
+  ✓ a category that does not match money in/out is refused
+  ✓ another workspace cannot mark it paid
+
+19. Salaries: one row per employee, paid on the usual day or early
+  ✓ an employee is added with a pay day
+  ✓ a new person joins the team's usual pay day
+  ✓ the salaries band lists everyone with the monthly total
+  ✓ “coming up” shows salaries as one line for the pay day
+  ✓ one person marked paid early is recorded and moves to next month
+  ✓ paying a salary takes it from cash
+  ✓ a salary cannot be recorded in the future
+  ✓ “pay everyone” pays only who is left
+  ✓ everyone's pay day can change at once
+  ✓ another workspace cannot pay this team
+  ✓ someone who left is removed from the band, their history stays
+
+164 passed, 0 failed

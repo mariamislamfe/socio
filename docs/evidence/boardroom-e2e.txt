@@ -1,0 +1,19 @@
+Boardroom
+  ✓ status reports configured
+  ✓ session created
+  ✓ run streams as server-sent events
+  ✓ plan arrives first, decision last
+  ✓ speakers follow the plan and the hand-off (cmo → cfo → legal)
+  ✓ typing indicators are real events before each message
+  ✓ numbers come from the finance engine, not the model
+  ✓ one decision with next steps
+  ✓ meeting is persisted with messages and decision
+  ✓ owner's question is saved as the first message
+  ✓ next steps become to-dos
+  ✓ creating them again is idempotent
+  ✓ they appear in the monthly to-do list
+  ✓ follow-up message reconvenes the board
+  ✓ another business cannot read this meeting
+  ✓ …or run it
+
+16 passed, 0 failed

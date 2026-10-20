@@ -1,0 +1,5 @@
+ RUN  v5.0.4 C:/Users/IslamIbrahimAbdElNab/Desktop/china
+ Test Files  14 passed (14)
+      Tests  243 passed (243)
+   Start at  15:22:13
+   Duration  31.59s (tests 92%, import 5%, transform 2%, worker 1%)

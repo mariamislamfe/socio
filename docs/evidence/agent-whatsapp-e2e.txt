@@ -1,0 +1,32 @@
+1. Agent with Claude (tool use)
+  ✓ uses Claude when configured
+  ✓ states the intent and a plan before acting
+  ✓ gathers facts through the financing tool
+  ✓ its answer uses the engine's numbers (best offer and its true cost)
+  ✓ can propose sharing the lender file, which waits for approval
+  ✓ the proposal is recorded as coming from the agent
+  ✓ nothing was shared by the agent itself
+  ✓ a tool that does not exist (raw SQL) is refused
+  ✓ if the model is unavailable, the built-in planner answers and says so
+
+2. WhatsApp morning briefing
+  ✓ owner opts in with their own number
+  ✓ briefing is sent through the WhatsApp API as an approved template
+  ✓ the message carries real figures (cash) in Arabic
+  ✓ a rejected message is recorded as failed, not as sent
+  ✓ delivery log keeps only a masked number
+
+3. Recording money by WhatsApp message
+  ✓ Meta webhook verification returns the challenge with the right token
+  ✓ …and refuses a wrong token
+  ✓ unsigned incoming message is rejected
+  ✓ a message from the owner's number is recorded as an expense in the right category
+  ✓ …and the owner gets a confirmation reply
+  ✓ a redelivered message is not recorded twice
+  ✓ a message from an unknown number records nothing and gets no reply
+  ✓ «الغي» undoes the last entry
+  ✓ in-app try-out records a sale with a confirmation
+  ✓ an unclear message records nothing and explains how to write it
+  ✓ after opting out nothing is sent
+
+25 passed, 0 failed
