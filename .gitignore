@@ -8,3 +8,7 @@ next-env.d.ts
 submission
 AGENTS.md
 docs/evidence/*.mp4
+
+# Private / local files
+CLAUDE.md
+.claude/
